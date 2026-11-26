@@ -1,0 +1,251 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+
+@source '../../../../app/Filament/**/*';
+@source '../../../../app/Livewire/**/*';
+@source '../../../../resources/views/filament/**/*';
+@source '../../../../resources/views/livewire/**/*';
+
+/* ==========================================================================
+   KM100 HRIS Design System — Flat Institutional "Operate Mode"
+   Brand palette derived from the KM100 official seal:
+     - Charcoal / Graphite: #3B3B3D, #27272A, #18181B
+     - Industrial Orange:   #F2851D (brand/dark), #C2510A (WCAG AA light CTA)
+   ========================================================================== */
+
+:root {
+    --km-canvas: #f8f8f9;
+    --km-sidebar: #f2f2f4;
+    --km-surface: #ffffff;
+    --km-border: #e4e4e7;
+    --km-border-strong: #d4d4d8;
+    --km-ink: #18181b;
+    --km-ink-muted: #52525b;
+    --km-brand-orange: #f2851d;
+    --km-brand-orange-aa: #c2510a;
+    --km-brand-charcoal: #3b3b3d;
+}
+
+.dark {
+    --km-canvas: #0f0f12;
+    --km-sidebar: #16161a;
+    --km-surface: #1c1c21;
+    --km-border: #2a2a32;
+    --km-border-strong: #3a3a45;
+    --km-ink: #fafafa;
+    --km-ink-muted: #a1a1aa;
+    --km-brand-orange: #f59436;
+    --km-brand-orange-aa: #f59436;
+    --km-brand-charcoal: #27272a;
+}
+
+::selection {
+    background-color: rgba(242, 133, 29, 0.22);
+    color: var(--km-ink);
+}
+
+.fi-body {
+    background-color: var(--km-canvas);
+    color: var(--km-ink);
+}
+
+p, .fi-ta-text, .text-xs, .text-sm {
+    text-wrap: pretty;
+}
+
+/* Topbar: flat hairline border instead of drop shadow */
+.fi-topbar {
+    background-color: var(--km-surface);
+    box-shadow: none !important;
+    border-bottom: 1px solid var(--km-border);
+    --tw-ring-shadow: 0 0 #0000 !important;
+}
+
+/* Sidebar: distinct secondary neutral layer with crisp right border */
+.fi-sidebar {
+    background-color: var(--km-sidebar) !important;
+    border-inline-end: 1px solid var(--km-border);
+}
+
+.fi-sidebar-item-active > .fi-sidebar-item-btn {
+    background-color: var(--km-surface);
+    border: 1px solid var(--km-border);
+    box-shadow: none;
+}
+
+/* Flat institutional cards, sections, and stats widgets */
+.fi-section:not(.fi-section-not-contained):not(.fi-aside),
+.fi-section.fi-aside > .fi-section-content-ctn,
+.fi-wi-stats-overview-stat,
+.fi-wi-table .fi-ta-ctn,
+.fi-ta-ctn {
+    background-color: var(--km-surface);
+    box-shadow: none !important;
+    border: 1px solid var(--km-border);
+    --tw-ring-shadow: 0 0 #0000 !important;
+    border-radius: 0.5rem;
+}
+
+/* Flat transparent badges — NO colored background boxes */
+.fi-badge,
+.fi-badge > span,
+.fi-badge span,
+.fi-badge-color-primary,
+.fi-badge-color-warning,
+.fi-badge-color-success,
+.fi-badge-color-info,
+.fi-badge-color-danger,
+.fi-badge-color-gray {
+    background-color: transparent !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: 1px solid var(--km-border) !important;
+}
+
+/* High-density operational table scanning & tabular numbers */
+.fi-ta-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--km-sidebar);
+    border-bottom: 1px solid var(--km-border);
+}
+
+/* Modern Native View Transitions API for buttery-smooth SPA navigation */
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-old(root) {
+    animation: 120ms ease-out both fade-out;
+}
+
+::view-transition-new(root) {
+    animation: 160ms ease-in both fade-in;
+}
+
+@keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Smooth Livewire morphing & progress bar */
+#nprogress .bar,
+.livewire-progress-bar {
+    background: #f2851d !important;
+    height: 3px !important;
+    box-shadow: 0 0 8px rgba(242, 133, 29, 0.4) !important;
+    transition: width 150ms ease !important;
+}
+
+.fi-ta-content,
+.fi-ta-table,
+.fi-section-content,
+.fi-page {
+    transition: opacity 120ms ease-in-out;
+}
+
+.fi-ta-header-cell {
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--km-ink-muted);
+}
+
+.fi-ta-cell,
+.fi-wi-stats-overview-stat-value {
+    font-variant-numeric: tabular-nums;
+}
+
+.fi-ta-text {
+    padding-top: 0.55rem;
+    padding-bottom: 0.55rem;
+}
+
+/* Crisp WCAG AA focus rings & tactile button press */
+.fi-btn,
+.fi-icon-btn,
+.fi-input,
+.fi-select-input {
+    transition: background-color 150ms ease, border-color 150ms ease, transform 120ms ease;
+}
+
+.fi-btn:active:not(:disabled) {
+    transform: scale(0.985);
+}
+
+.fi-btn:focus-visible,
+.fi-icon-btn:focus-visible,
+.fi-sidebar-item-btn:focus-visible,
+.km-focus-ring:focus-visible {
+    outline: 2px solid var(--km-brand-orange);
+    outline-offset: 2px;
+}
+
+/* Custom slim scrollbars aligned with graphite palette */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--km-border-strong);
+    border-radius: 9999px;
+}
+
+/* Accessible High-Contrast Placeholders (WCAG AA ≥ 4.5:1) */
+::placeholder,
+.fi-input::placeholder,
+.fi-select-input::placeholder,
+input::placeholder {
+    color: #52525b !important;
+    opacity: 1 !important;
+}
+
+.dark ::placeholder,
+.dark .fi-input::placeholder,
+.dark .fi-select-input::placeholder,
+.dark input::placeholder {
+    color: #a1a1aa !important;
+    opacity: 1 !important;
+}
+
+/* Sidebar Group Headings (WCAG AA contrast on #f2f2f4) */
+.fi-sidebar-group-label {
+    color: #3f3f46 !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.03em !important;
+}
+
+.dark .fi-sidebar-group-label {
+    color: #d4d4d8 !important;
+}
+
+/* Flatten Nested Card Shadows in Pagination Controls */
+label.fi-pagination-records-per-page-select > div.fi-input-wrp,
+.fi-pagination-records-per-page-select .fi-input-wrp {
+    box-shadow: none !important;
+    border-color: var(--km-border) !important;
+    --tw-ring-shadow: 0 0 #0000 !important;
+}
+
+/* Mobile 44px minimum touch targets (375px - 767px) */
+@media (max-width: 767px) {
+    .fi-btn,
+    .fi-icon-btn,
+    .fi-sidebar-item-btn,
+    .fi-topbar-item-btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
