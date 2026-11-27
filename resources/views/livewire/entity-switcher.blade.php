@@ -1,21 +1,31 @@
 <div class="flex items-center">
     @if ($canSwitch)
-        <div class="flex items-center gap-2.5 text-xs text-zinc-600 dark:text-zinc-300">
+        <div class="flex items-center gap-2.5 text-xs text-zinc-600 dark:text-zinc-300" style="display: flex; align-items: center; gap: 0.5rem;">
             @if ($activeEntity)
-                <div class="flex h-8.5 min-w-[34px] max-w-[85px] shrink-0 items-center justify-center rounded-md bg-white px-1.5 py-0.5 border border-zinc-200 shadow-2xs dark:border-zinc-700 dark:bg-zinc-800" title="{{ $activeEntity->name }}">
+                <div
+                    class="flex shrink-0 items-center justify-center rounded-md bg-white px-1.5 py-0.5 border border-zinc-200 shadow-2xs dark:border-zinc-700 dark:bg-zinc-800"
+                    style="height: 34px; min-width: 34px; max-width: 85px; padding: 2px 4px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; overflow: hidden;"
+                    title="{{ $activeEntity->name }}"
+                >
                     <img
                         src="{{ $activeEntity->logo_url }}"
                         alt="{{ $activeEntity->short_name }} Logo"
-                        class="h-7 w-auto max-w-[75px] object-contain"
+                        class="object-contain"
+                        style="height: 28px; width: auto; max-width: 75px; max-height: 28px; object-fit: contain; display: block;"
                         loading="lazy"
                     />
                 </div>
             @else
-                <div class="flex h-8.5 w-8.5 shrink-0 items-center justify-center rounded-md bg-white p-0.5 border border-zinc-200 shadow-2xs dark:border-zinc-700 dark:bg-zinc-800" title="KM100 Group - All Operating Businesses">
+                <div
+                    class="flex shrink-0 items-center justify-center rounded-md bg-white p-0.5 border border-zinc-200 shadow-2xs dark:border-zinc-700 dark:bg-zinc-800"
+                    style="height: 34px; width: 34px; padding: 2px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; overflow: hidden;"
+                    title="KM100 Group - All Operating Businesses"
+                >
                     <img
                         src="{{ asset('images/km100-logo.jpg') }}"
                         alt="KM100 Group Logo"
-                        class="h-7 w-7 object-contain"
+                        class="object-contain"
+                        style="height: 28px; width: 28px; max-height: 28px; max-width: 28px; object-fit: contain; display: block;"
                         loading="lazy"
                     />
                 </div>
@@ -39,12 +49,17 @@
             </select>
         </div>
     @elseif ($lockedEntity)
-        <div class="flex items-center gap-2.5 text-xs text-zinc-600 dark:text-zinc-300">
-            <div class="flex h-8.5 min-w-[34px] max-w-[85px] shrink-0 items-center justify-center rounded-md bg-white px-1.5 py-0.5 border border-zinc-200 shadow-2xs dark:border-zinc-700 dark:bg-zinc-800" title="{{ $lockedEntity->name }}">
+        <div class="flex items-center gap-2.5 text-xs text-zinc-600 dark:text-zinc-300" style="display: flex; align-items: center; gap: 0.5rem;">
+            <div
+                class="flex shrink-0 items-center justify-center rounded-md bg-white px-1.5 py-0.5 border border-zinc-200 shadow-2xs dark:border-zinc-700 dark:bg-zinc-800"
+                style="height: 34px; min-width: 34px; max-width: 85px; padding: 2px 4px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; overflow: hidden;"
+                title="{{ $lockedEntity->name }}"
+            >
                 <img
                     src="{{ $lockedEntity->logo_url }}"
                     alt="{{ $lockedEntity->short_name }} Logo"
-                    class="h-7 w-auto max-w-[75px] object-contain"
+                    class="object-contain"
+                    style="height: 28px; width: auto; max-width: 75px; max-height: 28px; object-fit: contain; display: block;"
                     loading="lazy"
                 />
             </div>
