@@ -33,7 +33,7 @@ class EmployeePanelProvider extends PanelProvider
             ->unsavedChangesAlerts()
             ->brandName('KM100 Group')
             ->brandLogo(fn () => view('filament.admin.components.brand-logo'))
-            ->brandLogoHeight('3.25rem')
+            ->brandLogoHeight('3.5rem')
             ->favicon(asset('favicon.svg'))
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->login()

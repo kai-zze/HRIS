@@ -23,13 +23,13 @@
 <div class="flex items-center gap-3 py-1" style="display: flex; align-items: center; gap: 0.75rem;">
     <div
         class="flex shrink-0 items-center justify-center overflow-hidden"
-        style="height: 44px; min-width: 44px; max-width: 110px; padding: 1px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important;"
+        style="height: 50px; min-width: 50px; max-width: 190px; padding: 1px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important;"
     >
         <img
             src="{{ $logoUrl }}"
             alt="{{ $title }} Logo"
             class="object-contain"
-            style="height: 40px; width: auto; max-width: 105px; max-height: 40px; object-fit: contain; display: block; border: none !important; outline: none !important; box-shadow: none !important;"
+            style="height: 46px; width: auto; max-width: 185px; max-height: 46px; object-fit: contain; display: block; border: none !important; outline: none !important; box-shadow: none !important;"
             loading="eager"
         />
     </div>
