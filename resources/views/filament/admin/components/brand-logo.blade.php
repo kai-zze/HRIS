@@ -7,38 +7,21 @@
         $activeEntity = $user->entity;
     }
 
-    $industryMeta = [
-        'REDGOOSE'  => 'Restaurant Operations',
-        'KNOAH'     => 'Coffee & Hospitality',
-        'PETC'      => 'Emission Testing Center',
-        'KM100-STC' => 'Skills & Training Center',
-        'STC'       => 'Technical Vocational Center',
-    ];
-
     $title = $activeEntity ? ($activeEntity->short_name ?: $activeEntity->name) : 'KM100 Group';
-    $subtitle = $activeEntity ? ($industryMeta[$activeEntity->code] ?? 'Operating Business Unit') : 'Enterprise Multi-Business HRIS';
     $logoUrl = $activeEntity ? $activeEntity->logo_url : asset('images/km100-logo.jpg');
 @endphp
 
-<div class="flex items-center gap-3 py-1" style="display: flex; align-items: center; gap: 0.75rem;">
+<div class="flex items-center py-1" style="display: flex; align-items: center;">
     <div
         class="flex shrink-0 items-center justify-center overflow-hidden"
-        style="height: 50px; min-width: 50px; max-width: 190px; padding: 1px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important;"
+        style="height: 50px; min-width: 50px; max-width: 220px; padding: 1px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important;"
     >
         <img
             src="{{ $logoUrl }}"
             alt="{{ $title }} Logo"
             class="object-contain"
-            style="height: 46px; width: auto; max-width: 185px; max-height: 46px; object-fit: contain; display: block; border: none !important; outline: none !important; box-shadow: none !important;"
+            style="height: 48px; width: auto; max-width: 210px; max-height: 48px; object-fit: contain; display: block; border: none !important; outline: none !important; box-shadow: none !important;"
             loading="eager"
         />
-    </div>
-    <div class="flex flex-col justify-center leading-tight" style="display: flex; flex-direction: column; justify-content: center;">
-        <span class="text-sm font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
-            {{ $title }}
-        </span>
-        <span class="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">
-            {{ $subtitle }}
-        </span>
     </div>
 </div>
