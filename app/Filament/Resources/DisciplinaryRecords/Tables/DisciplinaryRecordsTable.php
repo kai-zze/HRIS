@@ -31,7 +31,6 @@ class DisciplinaryRecordsTable
                     ->label('Category')
                     ->limit(25),
                 TextColumn::make('sanction')
-                    ->badge()
                     ->color(fn ($state) => match ($state) {
                         'Termination' => 'danger',
                         'Suspension' => 'danger',
@@ -47,7 +46,6 @@ class DisciplinaryRecordsTable
                     ->color('danger')
                     ->alignCenter(),
                 TextColumn::make('status')
-                    ->badge()
                     ->color(fn (string $state): string => match ($state) {
                         'Sanction Imposed' => 'danger',
                         'Case Closed' => 'success',

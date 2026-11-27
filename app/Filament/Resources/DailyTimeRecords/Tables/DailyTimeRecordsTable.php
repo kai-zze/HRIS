@@ -48,8 +48,7 @@ class DailyTimeRecordsTable
                     ->time('g:i A')
                     ->placeholder('—'),
                 TextColumn::make('status')
-                    ->label('Status')
-                    ->badge(),
+                    ->label('Status'),
                 TextColumn::make('late_minutes')
                     ->label('Late')
                     ->formatStateUsing(fn ($state) => $state > 0 ? "{$state}m" : '—')
@@ -64,7 +63,6 @@ class DailyTimeRecordsTable
                     ->color(fn ($state) => $state > 0 ? 'success' : 'gray'),
                 TextColumn::make('source')
                     ->label('Source')
-                    ->badge()
                     ->color('gray'),
             ])
             ->defaultSort('record_date', 'desc')

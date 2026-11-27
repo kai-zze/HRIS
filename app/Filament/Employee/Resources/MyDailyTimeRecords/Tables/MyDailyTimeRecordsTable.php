@@ -51,7 +51,6 @@ class MyDailyTimeRecordsTable
                     ->weight('medium'),
                 TextColumn::make('status')
                     ->label('Status')
-                    ->badge()
                     ->color(fn (AttendanceStatus $state): string => match ($state) {
                         AttendanceStatus::Present => 'success',
                         AttendanceStatus::Late => 'danger',

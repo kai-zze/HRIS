@@ -40,7 +40,7 @@ class EntitySwitcher extends Component
         return Entity::query()
             ->where('is_active', true)
             ->orderBy('id')
-            ->get(['id', 'code', 'short_name', 'name']);
+            ->get(['id', 'code', 'short_name', 'name', 'logo_path']);
     }
 
     public function render(EntityContextService $context): View
@@ -48,12 +48,16 @@ class EntitySwitcher extends Component
         $user = Auth::user();
         $canSwitch = $context->canSwitchEntities($user);
         $lockedEntity = ! $canSwitch && $user?->entity_id
-            ? Entity::query()->find($user->entity_id, ['id', 'code', 'short_name', 'name'])
+            ? Entity::query()->find($user->entity_id, ['id', 'code', 'short_name', 'name', 'logo_path'])
             : null;
+        $activeEntity = $canSwitch && $this->entityId !== ''
+            ? $this->entities->firstWhere('id', (int) $this->entityId)
+            : $lockedEntity;
 
         return view('livewire.entity-switcher', [
             'canSwitch' => $canSwitch,
             'lockedEntity' => $lockedEntity,
+            'activeEntity' => $activeEntity,
             'entities' => $canSwitch ? $this->entities : collect(),
         ]);
     }

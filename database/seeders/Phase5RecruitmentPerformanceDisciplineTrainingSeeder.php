@@ -25,7 +25,7 @@ class Phase5RecruitmentPerformanceDisciplineTrainingSeeder extends Seeder
 {
     public function run(): void
     {
-        $km100 = Entity::where('code', 'KM100-STC')->first();
+        $km100 = Entity::where('code', 'STC')->first();
         $knoah = Entity::where('code', 'KNOAH')->first();
         $redGoose = Entity::where('code', 'REDGOOSE')->first();
         $superAdmin = User::where('email', 'superadmin@km100group.ph')->first();

@@ -11,6 +11,8 @@ class MonthlyPayrollExpensesChartWidget extends ChartWidget
 
     protected static ?int $sort = 4;
 
+    protected ?string $pollingInterval = null;
+
     protected function getData(): array
     {
         $runs = PayrollRun::withoutGlobalScopes()

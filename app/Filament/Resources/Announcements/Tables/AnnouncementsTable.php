@@ -29,7 +29,6 @@ class AnnouncementsTable
                 TextColumn::make('entity.name')
                     ->label('Target Entity')
                     ->default('Group-wide (All Entities)')
-                    ->badge()
                     ->color(fn ($state) => $state === 'Group-wide (All Entities)' ? 'primary' : 'gray'),
                 TextColumn::make('published_at')
                     ->label('Published')

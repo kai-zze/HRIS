@@ -13,7 +13,7 @@ class DepartmentPositionSeeder extends Seeder
     public function run(): void
     {
         $catalog = [
-            EntityCode::Km100Stc->value => [
+            EntityCode::Stc->value => [
                 ['code' => 'TRG', 'name' => 'Training & Assessment Delivery', 'positions' => [
                     ['code' => 'TRG-DIR', 'title' => 'Training Director', 'grade' => 'MGR-2'],
                     ['code' => 'TRG-LEAD', 'title' => 'Lead TESDA Accredited Trainer', 'grade' => 'SUP-1'],
@@ -31,6 +31,15 @@ class DepartmentPositionSeeder extends Seeder
                 ['code' => 'FIN', 'name' => 'Finance & Accounting', 'positions' => [
                     ['code' => 'FIN-ACC', 'title' => 'Senior Accountant', 'grade' => 'SUP-1'],
                     ['code' => 'FIN-PAY', 'title' => 'Payroll & Billing Officer', 'grade' => 'JG-3'],
+                ]],
+                ['code' => 'ACAD', 'name' => 'Technical Curriculum & Instruction', 'positions' => [
+                    ['code' => 'ACAD-HEAD', 'title' => 'Academic Supervisor', 'grade' => 'SUP-1'],
+                    ['code' => 'ACAD-TRN', 'title' => 'Skills Trainer', 'grade' => 'JG-3'],
+                    ['code' => 'ACAD-LAB', 'title' => 'Workshop & Lab Custodian', 'grade' => 'JG-2'],
+                ]],
+                ['code' => 'ADM', 'name' => 'Branch Administration', 'positions' => [
+                    ['code' => 'ADM-HR', 'title' => 'Branch HR Coordinator', 'grade' => 'JG-3'],
+                    ['code' => 'ADM-CLK', 'title' => 'Admin Assistant', 'grade' => 'JG-1'],
                 ]],
             ],
             EntityCode::KnoahMari->value => [
@@ -58,17 +67,6 @@ class DepartmentPositionSeeder extends Seeder
                 ]],
                 ['code' => 'HRAD', 'name' => 'HR & Admin', 'positions' => [
                     ['code' => 'HR-SPEC', 'title' => 'HR & Timekeeping Specialist', 'grade' => 'JG-3'],
-                ]],
-            ],
-            EntityCode::Stc->value => [
-                ['code' => 'ACAD', 'name' => 'Technical Curriculum & Instruction', 'positions' => [
-                    ['code' => 'ACAD-HEAD', 'title' => 'Academic Supervisor', 'grade' => 'SUP-1'],
-                    ['code' => 'ACAD-TRN', 'title' => 'Skills Trainer', 'grade' => 'JG-3'],
-                    ['code' => 'ACAD-LAB', 'title' => 'Workshop & Lab Custodian', 'grade' => 'JG-2'],
-                ]],
-                ['code' => 'ADM', 'name' => 'Branch Administration', 'positions' => [
-                    ['code' => 'ADM-HR', 'title' => 'Branch HR Coordinator', 'grade' => 'JG-3'],
-                    ['code' => 'ADM-CLK', 'title' => 'Admin Assistant', 'grade' => 'JG-1'],
                 ]],
             ],
             EntityCode::Petc->value => [

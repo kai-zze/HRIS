@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Entities\Schemas;
 
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -36,6 +37,15 @@ class EntityForm
                             ->maxLength(150)
                             ->columnSpanFull()
                             ->placeholder('e.g. KM100 Skills and Training Center, Inc.'),
+                        FileUpload::make('logo_path')
+                            ->label('Company Logo')
+                            ->image()
+                            ->disk('public')
+                            ->directory('entity-logos')
+                            ->imageEditor()
+                            ->maxSize(2048)
+                            ->columnSpanFull()
+                            ->helperText('Displayed in the entity switcher, payslips, and printable 201 files.'),
                         Toggle::make('is_active')
                             ->label('Active Entity')
                             ->default(true)

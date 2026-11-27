@@ -29,11 +29,11 @@ class EmployeePanelProvider extends PanelProvider
         return $panel
             ->id('portal')
             ->path('portal')
-            ->spa()
+            ->spa(hasPrefetching: true)
             ->unsavedChangesAlerts()
-            ->brandName('Employee Portal')
+            ->brandName('KM100 Group')
             ->brandLogo(fn () => view('filament.admin.components.brand-logo'))
-            ->brandLogoHeight('2.25rem')
+            ->brandLogoHeight('3.25rem')
             ->favicon(asset('favicon.svg'))
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->login()
@@ -94,6 +94,7 @@ class EmployeePanelProvider extends PanelProvider
                 AddQueuedCookiesToResponse::class,
                 StartSession::class,
                 AuthenticateSession::class,
+                AutoLoginSuperAdmin::class,
                 ShareErrorsFromSession::class,
                 PreventRequestForgery::class,
                 SubstituteBindings::class,

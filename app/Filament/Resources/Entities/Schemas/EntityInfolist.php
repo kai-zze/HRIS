@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Entities\Schemas;
 
 use App\Models\Entity;
 use Filament\Infolists\Components\IconEntry;
+use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
@@ -17,9 +18,14 @@ class EntityInfolist
                 Section::make('Entity Overview')
                     ->columns(3)
                     ->schema([
+                        ImageEntry::make('logo_url')
+                            ->label('Company Logo')
+                            ->getStateUsing(fn (Entity $record): string => $record->logo_url)
+                            ->imageHeight(100)
+                            ->extraImgAttributes(['class' => 'object-contain bg-white p-2 rounded-lg border border-zinc-200 shadow-xs max-w-xs'])
+                            ->columnSpanFull(),
                         TextEntry::make('code')
                             ->label('Entity Code')
-                            ->badge()
                             ->color('primary'),
                         TextEntry::make('short_name')
                             ->label('Short Name'),

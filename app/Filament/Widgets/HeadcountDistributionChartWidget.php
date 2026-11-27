@@ -12,6 +12,8 @@ class HeadcountDistributionChartWidget extends ChartWidget
 
     protected static ?int $sort = 3;
 
+    protected ?string $pollingInterval = null;
+
     protected function getData(): array
     {
         $counts = Employee::withoutGlobalScopes()

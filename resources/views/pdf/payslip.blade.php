@@ -129,7 +129,12 @@
     <div class="header">
         <table>
             <tr>
-                <td style="width: 70%;">
+                @if ($item->payrollRun->entity && file_exists($item->payrollRun->entity->logo_absolute_path))
+                    <td style="width: 140px; vertical-align: middle;">
+                        <img src="{{ $item->payrollRun->entity->logo_absolute_path }}" alt="Entity Logo" style="max-height: 60px; max-width: 130px; object-fit: contain; border-radius: 4px;">
+                    </td>
+                @endif
+                <td style="width: 65%; vertical-align: middle;">
                     <div class="company-title">{{ $item->payrollRun->entity->name ?? 'KM100 Group' }}</div>
                     <div class="doc-title">CONFIDENTIAL SALARY PAYSLIP</div>
                     <div class="meta-text">

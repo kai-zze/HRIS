@@ -29,7 +29,7 @@ class EmployeeSeeder extends Seeder
         $sampleEmployees = [
             // KM100 STC - Super Admin Executive Profile
             [
-                'entity_code' => 'KM100-STC',
+                'entity_code' => 'STC',
                 'first_name' => 'Marco Antonio',
                 'middle_name' => 'Gomez',
                 'last_name' => 'Reyes',
@@ -48,14 +48,14 @@ class EmployeeSeeder extends Seeder
             ],
             // KM100 STC
             [
-                'entity_code' => 'KM100-STC',
+                'entity_code' => 'STC',
                 'first_name' => 'Clarissa',
                 'middle_name' => 'Santos',
                 'last_name' => 'Mendoza',
                 'birthdate' => '1988-04-12',
                 'sex' => Gender::Female,
                 'civil_status' => CivilStatus::Married,
-                'email' => 'hr.km100@km100group.ph',
+                'email' => 'hr.stc@km100group.ph',
                 'contact_number' => '+63 917 123 4567',
                 'residential_address' => 'Brgy. Central, Quezon City',
                 'dept_code' => 'HRAD',
@@ -66,14 +66,14 @@ class EmployeeSeeder extends Seeder
                 'salary' => 65000.00,
             ],
             [
-                'entity_code' => 'KM100-STC',
+                'entity_code' => 'STC',
                 'first_name' => 'Rafael',
                 'middle_name' => 'Dela Cruz',
                 'last_name' => 'Villanueva',
                 'birthdate' => '1985-09-20',
                 'sex' => Gender::Male,
                 'civil_status' => CivilStatus::Married,
-                'email' => 'manager.km100@km100group.ph',
+                'email' => 'manager.stc@km100group.ph',
                 'contact_number' => '+63 918 234 5678',
                 'residential_address' => 'Project 4, Quezon City',
                 'dept_code' => 'TRG',
@@ -84,7 +84,7 @@ class EmployeeSeeder extends Seeder
                 'salary' => 75000.00,
             ],
             [
-                'entity_code' => 'KM100-STC',
+                'entity_code' => 'STC',
                 'first_name' => 'Angelo',
                 'middle_name' => 'Reyes',
                 'last_name' => 'Dela Cruz',
@@ -102,7 +102,7 @@ class EmployeeSeeder extends Seeder
                 'salary' => 32000.00,
             ],
             [
-                'entity_code' => 'KM100-STC',
+                'entity_code' => 'STC',
                 'first_name' => 'Bianca',
                 'middle_name' => 'Cruz',
                 'last_name' => 'Ramos',

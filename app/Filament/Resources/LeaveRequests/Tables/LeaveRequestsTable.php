@@ -25,7 +25,12 @@ class LeaveRequestsTable
                 TextColumn::make('start_date')->label('From')->date('M d, Y')->sortable(),
                 TextColumn::make('end_date')->label('To')->date('M d, Y')->sortable(),
                 TextColumn::make('number_of_days')->label('Days')->formatStateUsing(fn ($state) => "{$state}d")->weight('bold'),
-                TextColumn::make('status')->label('Status')->badge(),
+                TextColumn::make('status')->label('Status')->color(fn ($state) => match ($state?->value ?? $state) {
+                    'Approved' => 'success',
+                    'Pending' => 'warning',
+                    'Rejected', 'Cancelled' => 'danger',
+                    default => 'info',
+                }),
                 TextColumn::make('reason')->label('Reason')->limit(30),
             ])
             ->defaultSort('start_date', 'desc')

@@ -58,7 +58,6 @@ class EmployeeRecentDtrWidget extends BaseWidget
                     ->formatStateUsing(fn ($state) => sprintf('%.1f h', $state)),
                 TextColumn::make('status')
                     ->label('Status')
-                    ->badge()
                     ->color(fn (AttendanceStatus $state): string => match ($state) {
                         AttendanceStatus::Present => 'success',
                         AttendanceStatus::Late => 'danger',

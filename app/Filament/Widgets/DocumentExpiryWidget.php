@@ -68,7 +68,6 @@ class DocumentExpiryWidget extends TableWidget
 
                         return $days === 0 ? 'Expires today' : "Expires in {$days} days";
                     })
-                    ->badge()
                     ->color(fn (EmployeeDocument $record): string => $record->isExpired() ? 'danger' : 'warning'),
             ])
             ->emptyStateHeading('No documents expiring soon')

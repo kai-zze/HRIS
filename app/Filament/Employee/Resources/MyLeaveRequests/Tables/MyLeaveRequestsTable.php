@@ -36,7 +36,6 @@ class MyLeaveRequestsTable
                     ->alignCenter(),
                 TextColumn::make('status')
                     ->label('Status')
-                    ->badge()
                     ->color(fn (RequestStatus $state): string => match ($state) {
                         RequestStatus::Pending => 'warning',
                         RequestStatus::Endorsed => 'info',

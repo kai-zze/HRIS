@@ -12,6 +12,8 @@ class AttendanceTrendChartWidget extends ChartWidget
 
     protected static ?int $sort = 5;
 
+    protected ?string $pollingInterval = null;
+
     protected function getData(): array
     {
         $startDate = Carbon::today()->subDays(6)->startOfDay();

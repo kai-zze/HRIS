@@ -79,8 +79,8 @@ class PayrollSeeder extends Seeder
             }
         }
 
-        // Seed an approved Payroll Run for January 1-15, 2026 for the primary entity KM100-STC
-        $entity = Entity::where('code', 'KM100-STC')->first() ?? Entity::first();
+        // Seed an approved Payroll Run for January 1-15, 2026 for the primary entity STC
+        $entity = Entity::where('code', 'STC')->first() ?? Entity::first();
         if ($entity) {
             $cutoffStart = Carbon::parse('2026-01-01');
             $cutoffEnd = Carbon::parse('2026-01-15');

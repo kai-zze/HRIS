@@ -30,9 +30,9 @@ class UserSeeder extends Seeder
 
         // 2. HR Admins & Managers per entity
         $leadership = [
-            EntityCode::Km100Stc->value => [
-                'hr' => ['name' => 'Clarissa Mendoza', 'email' => 'hr.km100@km100group.ph'],
-                'manager' => ['name' => 'Engr. Rafael Villanueva', 'email' => 'manager.km100@km100group.ph'],
+            EntityCode::Stc->value => [
+                'hr' => ['name' => 'Marites Navarro', 'email' => 'hr.stc@km100group.ph'],
+                'manager' => ['name' => 'Rolando Cruz', 'email' => 'manager.stc@km100group.ph'],
             ],
             EntityCode::KnoahMari->value => [
                 'hr' => ['name' => 'Patricia Santos', 'email' => 'hr.knoah@km100group.ph'],
@@ -41,10 +41,6 @@ class UserSeeder extends Seeder
             EntityCode::RedGoose->value => [
                 'hr' => ['name' => 'Jerome Aquino', 'email' => 'hr.redgoose@km100group.ph'],
                 'manager' => ['name' => 'Danilo Pascual', 'email' => 'manager.redgoose@km100group.ph'],
-            ],
-            EntityCode::Stc->value => [
-                'hr' => ['name' => 'Marites Navarro', 'email' => 'hr.stc@km100group.ph'],
-                'manager' => ['name' => 'Rolando Cruz', 'email' => 'manager.stc@km100group.ph'],
             ],
             EntityCode::Petc->value => [
                 'hr' => ['name' => 'Camille Soriano', 'email' => 'hr.petc@km100group.ph'],
@@ -86,11 +82,13 @@ class UserSeeder extends Seeder
             $managerUser->syncRoles([RoleName::Manager->value]);
         }
 
-        // 3. 32 Employee demo accounts distributed across the 5 KM100 entities
+        // 3. Employee demo accounts distributed across the 4 KM100 entities
         $employeesByEntity = [
-            EntityCode::Km100Stc->value => [
+            EntityCode::Stc->value => [
                 'Angelo Dela Cruz', 'Bianca Ramos', 'Carlo Fernandez', 'Denise Bautista',
                 'Eduardo Garcia', 'Fatima Lim', 'Gianna Torres', 'Henrik Ocampo',
+                'Vincent Magno', 'Wendy Castro', 'Xavier Domingo', 'Yvette Manalo',
+                'Zachary Alonzo', 'Abigail Vergara',
             ],
             EntityCode::KnoahMari->value => [
                 'Irene Castillo', 'Jayson Rivera', 'Katrina Flores', 'Lorenzo Diaz',
@@ -99,10 +97,6 @@ class UserSeeder extends Seeder
             EntityCode::RedGoose->value => [
                 'Paulo Salazar', 'Queenie Morales', 'Rico Tolentino', 'Samantha Uy',
                 'Tristan Velasco', 'Ursula De Leon',
-            ],
-            EntityCode::Stc->value => [
-                'Vincent Magno', 'Wendy Castro', 'Xavier Domingo', 'Yvette Manalo',
-                'Zachary Alonzo', 'Abigail Vergara',
             ],
             EntityCode::Petc->value => [
                 'Bryan Evangelista', 'Cherry Ann Lopez', 'Derrick Roxas', 'Elaine Dizon',

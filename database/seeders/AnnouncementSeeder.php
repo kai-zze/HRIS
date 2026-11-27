@@ -12,7 +12,7 @@ class AnnouncementSeeder extends Seeder
     public function run(): void
     {
         $superAdmin = User::query()->where('email', 'superadmin@km100group.ph')->first();
-        $km100Entity = Entity::query()->where('code', 'KM100-STC')->first();
+        $km100Entity = Entity::query()->where('code', 'STC')->first();
 
         $announcements = [
             [

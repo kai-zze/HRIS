@@ -67,7 +67,6 @@ class ParticipantsRelationManager extends RelationManager
                     ->searchable()
                     ->weight('bold'),
                 TextColumn::make('status')
-                    ->badge()
                     ->color(fn ($state) => match ($state) {
                         'Completed' => 'success',
                         'Attended' => 'info',

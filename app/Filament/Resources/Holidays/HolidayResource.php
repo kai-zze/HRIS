@@ -60,8 +60,8 @@ class HolidayResource extends Resource
             ->columns([
                 TextColumn::make('holiday_date')->label('Date')->date('F d, Y (l)')->sortable()->weight('bold'),
                 TextColumn::make('name')->label('Holiday Name')->searchable()->sortable(),
-                TextColumn::make('holiday_type')->label('Type')->badge(),
-                TextColumn::make('entity.short_name')->label('Applicable Entity')->placeholder('Nationwide')->badge()->color('gray'),
+                TextColumn::make('holiday_type')->label('Type'),
+                TextColumn::make('entity.short_name')->label('Applicable Entity')->placeholder('Nationwide'),
             ])
             ->defaultSort('holiday_date', 'asc')
             ->filters([

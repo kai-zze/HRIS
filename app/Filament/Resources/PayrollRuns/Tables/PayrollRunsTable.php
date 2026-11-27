@@ -42,7 +42,6 @@ class PayrollRunsTable
                     ->sortable(),
                 TextColumn::make('status')
                     ->label('Status')
-                    ->badge()
                     ->color(fn (string $state): string => match ($state) {
                         'draft' => 'gray',
                         'review' => 'warning',

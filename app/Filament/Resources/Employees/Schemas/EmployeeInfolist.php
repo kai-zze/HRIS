@@ -37,8 +37,7 @@ class EmployeeInfolist
                                             ->label('Full Name')
                                             ->weight('bold'),
                                         TextEntry::make('employment_status')
-                                            ->label('Status')
-                                            ->badge(),
+                                            ->label('Status'),
                                         TextEntry::make('entity.name')
                                             ->label('Entity'),
                                         TextEntry::make('department.name')
@@ -104,7 +103,6 @@ class EmployeeInfolist
                                         TextEntry::make('issue_date')->date('F d, Y')->placeholder('—'),
                                         TextEntry::make('expiry_date')
                                             ->date('F d, Y')
-                                            ->badge()
                                             ->color(fn ($state) => $state && now()->parse($state)->isPast() ? 'danger' : 'warning')
                                             ->placeholder('No Expiration'),
                                     ]),

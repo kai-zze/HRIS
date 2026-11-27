@@ -61,7 +61,6 @@ class EmployeesTable
                     ->wrap(),
                 TextColumn::make('employment_status')
                     ->label('Status')
-                    ->badge()
                     ->sortable(),
                 TextColumn::make('date_hired')
                     ->label('Date Hired')

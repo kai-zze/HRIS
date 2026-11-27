@@ -34,9 +34,11 @@ class UsersTable
                 TextColumn::make('entity.short_name')
                     ->label('Entity')
                     ->placeholder('All Entities')
+                    ->badge(false)
                     ->sortable(),
                 TextColumn::make('roles.name')
                     ->label('Role')
+                    ->badge(false)
                     ->weight('medium'),
                 IconColumn::make('is_active')
                     ->label('Active')

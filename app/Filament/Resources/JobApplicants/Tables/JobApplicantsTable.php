@@ -47,7 +47,6 @@ class JobApplicantsTable
                     ->color('warning')
                     ->alignCenter(),
                 TextColumn::make('stage')
-                    ->badge()
                     ->color(fn (ApplicantStage $state): string => $state->getColor()),
                 TextColumn::make('created_at')
                     ->label('Applied')

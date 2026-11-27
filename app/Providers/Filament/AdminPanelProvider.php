@@ -35,11 +35,11 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
-            ->spa()
+            ->spa(hasPrefetching: true)
             ->unsavedChangesAlerts()
-            ->brandName('Enterprise HRIS')
+            ->brandName('KM100 Group')
             ->brandLogo(fn () => view('filament.admin.components.brand-logo'))
-            ->brandLogoHeight('2.25rem')
+            ->brandLogoHeight('3.25rem')
             ->favicon(asset('favicon.svg'))
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->login()
@@ -109,6 +109,7 @@ class AdminPanelProvider extends PanelProvider
                 AddQueuedCookiesToResponse::class,
                 StartSession::class,
                 AuthenticateSession::class,
+                AutoLoginSuperAdmin::class,
                 ShareErrorsFromSession::class,
                 PreventRequestForgery::class,
                 SubstituteBindings::class,

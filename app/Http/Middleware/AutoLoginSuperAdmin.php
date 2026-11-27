@@ -16,7 +16,6 @@ class AutoLoginSuperAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        fwrite(STDERR, "\n[AutoLoginSuperAdmin invoked for " . $request->path() . "]\n");
         try {
             $guard = Filament::auth();
 

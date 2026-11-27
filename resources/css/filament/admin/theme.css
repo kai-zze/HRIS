@@ -19,6 +19,7 @@
     --km-border: #e4e4e7;
     --km-border-strong: #d4d4d8;
     --km-ink: #18181b;
+    --km-ink-strong: #3f3f46;
     --km-ink-muted: #52525b;
     --km-brand-orange: #f2851d;
     --km-brand-orange-aa: #c2510a;
@@ -32,6 +33,7 @@
     --km-border: #2a2a32;
     --km-border-strong: #3a3a45;
     --km-ink: #fafafa;
+    --km-ink-strong: #d4d4d8;
     --km-ink-muted: #a1a1aa;
     --km-brand-orange: #f59436;
     --km-brand-orange-aa: #f59436;
@@ -85,7 +87,7 @@ p, .fi-ta-text, .text-xs, .text-sm {
     border-radius: 0.5rem;
 }
 
-/* Flat transparent badges — NO colored background boxes */
+/* Flat clean typography — NO colored background boxes, borders, or AI pills */
 .fi-badge,
 .fi-badge > span,
 .fi-badge span,
@@ -98,7 +100,13 @@ p, .fi-ta-text, .text-xs, .text-sm {
     background-color: transparent !important;
     background: transparent !important;
     box-shadow: none !important;
-    border: 1px solid var(--km-border) !important;
+    border: none !important;
+    --tw-ring-shadow: 0 0 #0000 !important;
+    --tw-ring-offset-shadow: 0 0 #0000 !important;
+    ring: none !important;
+    outline: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
 }
 
 /* High-density operational table scanning & tabular numbers */
@@ -133,13 +141,12 @@ p, .fi-ta-text, .text-xs, .text-sm {
     to { opacity: 1; }
 }
 
-/* Smooth Livewire morphing & progress bar */
+/* Hide top SPA navigation loading bar for instant-feel transitions */
+#nprogress,
 #nprogress .bar,
 .livewire-progress-bar {
-    background: #f2851d !important;
-    height: 3px !important;
-    box-shadow: 0 0 8px rgba(242, 133, 29, 0.4) !important;
-    transition: width 150ms ease !important;
+    display: none !important;
+    opacity: 0 !important;
 }
 
 .fi-ta-content,
@@ -208,27 +215,41 @@ p, .fi-ta-text, .text-xs, .text-sm {
 .fi-input::placeholder,
 .fi-select-input::placeholder,
 input::placeholder {
-    color: #52525b !important;
-    opacity: 1 !important;
-}
-
-.dark ::placeholder,
-.dark .fi-input::placeholder,
-.dark .fi-select-input::placeholder,
-.dark input::placeholder {
-    color: #a1a1aa !important;
+    color: var(--km-ink-muted) !important;
     opacity: 1 !important;
 }
 
 /* Sidebar Group Headings (WCAG AA contrast on #f2f2f4) */
 .fi-sidebar-group-label {
-    color: #3f3f46 !important;
+    color: var(--km-ink-strong) !important;
     font-weight: 600 !important;
     letter-spacing: 0.03em !important;
 }
 
-.dark .fi-sidebar-group-label {
-    color: #d4d4d8 !important;
+@media (prefers-reduced-motion: reduce) {
+    @view-transition {
+        navigation: none;
+    }
+
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation: none !important;
+    }
+
+    .fi-ta-content,
+    .fi-ta-table,
+    .fi-section-content,
+    .fi-page,
+    .fi-btn,
+    .fi-icon-btn,
+    .fi-input,
+    .fi-select-input {
+        transition: none !important;
+    }
+
+    .fi-btn:active:not(:disabled) {
+        transform: none;
+    }
 }
 
 /* Flatten Nested Card Shadows in Pagination Controls */

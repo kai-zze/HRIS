@@ -86,7 +86,12 @@
     <div class="header">
         <table>
             <tr>
-                <td>
+                @if ($employee->entity && file_exists($employee->entity->logo_absolute_path))
+                    <td style="width: 140px; vertical-align: middle;">
+                        <img src="{{ $employee->entity->logo_absolute_path }}" alt="Entity Logo" style="max-height: 65px; max-width: 130px; object-fit: contain; border-radius: 4px;">
+                    </td>
+                @endif
+                <td style="vertical-align: middle;">
                     <div class="company-title">{{ $employee->entity?->name ?? 'KM100 GROUP' }}</div>
                     <div class="doc-title">CONFIDENTIAL 201 EMPLOYEE FILE RECORD</div>
                     <div style="color: #71717a; font-size: 10px; margin-top: 2px;">

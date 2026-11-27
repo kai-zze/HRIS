@@ -24,7 +24,12 @@ class OvertimeRequestsTable
                 TextColumn::make('hours_requested')->label('Requested Hrs')->formatStateUsing(fn ($state) => "{$state} hrs")->weight('bold'),
                 TextColumn::make('start_time')->time('g:i A'),
                 TextColumn::make('end_time')->time('g:i A'),
-                TextColumn::make('status')->label('Status')->badge(),
+                TextColumn::make('status')->label('Status')->color(fn ($state) => match ($state?->value ?? $state) {
+                    'Approved' => 'success',
+                    'Pending' => 'warning',
+                    'Rejected', 'Cancelled' => 'danger',
+                    default => 'info',
+                }),
                 TextColumn::make('purpose')->label('Purpose')->limit(30),
             ])
             ->defaultSort('overtime_date', 'desc')

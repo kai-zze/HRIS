@@ -52,7 +52,6 @@ class ThirteenthMonthsTable
                     ->alignRight(),
                 TextColumn::make('status')
                     ->label('Status')
-                    ->badge()
                     ->color(fn (string $state): string => match ($state) {
                         'paid' => 'success',
                         'pending' => 'warning',

@@ -33,7 +33,6 @@ class JobPostingsTable
                     ->counts('applicants')
                     ->alignCenter(),
                 TextColumn::make('status')
-                    ->badge()
                     ->color(fn (string $state): string => match ($state) {
                         'Open' => 'success',
                         'Draft' => 'gray',

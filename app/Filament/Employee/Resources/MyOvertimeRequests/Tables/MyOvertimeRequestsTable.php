@@ -32,7 +32,6 @@ class MyOvertimeRequestsTable
                     ->limit(40),
                 TextColumn::make('status')
                     ->label('Status')
-                    ->badge()
                     ->color(fn (RequestStatus $state): string => match ($state) {
                         RequestStatus::Pending => 'warning',
                         RequestStatus::Endorsed => 'info',

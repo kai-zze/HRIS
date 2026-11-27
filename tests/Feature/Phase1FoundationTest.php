@@ -23,11 +23,11 @@ class Phase1FoundationTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_database_seeder_populates_five_entities_and_demo_users(): void
+    public function test_database_seeder_populates_four_entities_and_demo_users(): void
     {
         $this->seed(DatabaseSeeder::class);
 
-        $this->assertSame(5, Entity::query()->count());
+        $this->assertSame(4, Entity::query()->count());
 
         foreach (EntityCode::cases() as $code) {
             $this->assertDatabaseHas('entities', ['code' => $code->value]);
@@ -44,7 +44,7 @@ class Phase1FoundationTest extends TestCase
     {
         $this->seed(DatabaseSeeder::class);
 
-        $entity = Entity::query()->where('code', EntityCode::Km100Stc->value)->firstOrFail();
+        $entity = Entity::query()->where('code', EntityCode::Stc->value)->firstOrFail();
 
         $rawTin = DB::table('entities')->where('id', $entity->id)->value('tin');
 

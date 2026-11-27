@@ -27,7 +27,6 @@ class ActivityLogsTable
                     ->searchable(),
                 TextColumn::make('description')
                     ->label('Event')
-                    ->badge()
                     ->color(fn (string $state): string => match ($state) {
                         'created' => 'success',
                         'updated' => 'info',
