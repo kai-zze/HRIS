@@ -118,42 +118,39 @@ p, .fi-ta-text, .text-xs, .text-sm {
     border-bottom: 1px solid var(--km-border);
 }
 
-/* Modern Native View Transitions API for buttery-smooth SPA navigation */
+/* Zero-delay instant navigation: eliminate all artificial view transition delays */
 @view-transition {
-    navigation: auto;
+    navigation: none;
 }
 
-::view-transition-old(root) {
-    animation: 120ms ease-out both fade-out;
-}
-
+::view-transition-old(root),
 ::view-transition-new(root) {
-    animation: 160ms ease-in both fade-in;
+    animation: none !important;
+    animation-duration: 0s !important;
 }
 
-@keyframes fade-out {
-    from { opacity: 1; }
-    to { opacity: 0; }
-}
-
-@keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
+/* 0ms Instant Tap Response: remove mobile double-tap delay and transition lags */
+a, button, select, [wire\:click], [wire\:navigate] {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 /* Hide top SPA navigation loading bar for instant-feel transitions */
 #nprogress,
 #nprogress .bar,
-.livewire-progress-bar {
+.livewire-progress-bar,
+.fi-loading-indicator {
     display: none !important;
     opacity: 0 !important;
+    visibility: hidden !important;
 }
 
 .fi-ta-content,
 .fi-ta-table,
 .fi-section-content,
 .fi-page {
-    transition: opacity 120ms ease-in-out;
+    transition: none !important;
+    transition-duration: 0s !important;
 }
 
 .fi-ta-header-cell {
@@ -175,12 +172,13 @@ p, .fi-ta-text, .text-xs, .text-sm {
     padding-bottom: 0.55rem;
 }
 
-/* Crisp WCAG AA focus rings & tactile button press */
+/* Crisp WCAG AA focus rings & instant tactile button press (0ms delay) */
 .fi-btn,
 .fi-icon-btn,
 .fi-input,
 .fi-select-input {
-    transition: background-color 150ms ease, border-color 150ms ease, transform 120ms ease;
+    transition: none !important;
+    transition-duration: 0s !important;
 }
 
 .fi-btn:active:not(:disabled) {
