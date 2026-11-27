@@ -8,6 +8,10 @@ use Filament\Widgets\ChartWidget;
 
 class HeadcountDistributionChartWidget extends ChartWidget
 {
+    protected static ?bool $isLazyLoaded = false;
+
+    protected static bool $isLazy = false;
+
     protected ?string $heading = 'Group Headcount by Operating Entity';
 
     protected static ?int $sort = 3;

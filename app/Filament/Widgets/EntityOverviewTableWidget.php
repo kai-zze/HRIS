@@ -12,6 +12,10 @@ use Illuminate\Database\Eloquent\Builder;
 
 class EntityOverviewTableWidget extends TableWidget
 {
+    protected static ?bool $isLazyLoaded = false;
+
+    protected static bool $isLazy = false;
+
     protected static ?int $sort = 2;
 
     protected int|string|array $columnSpan = 'full';

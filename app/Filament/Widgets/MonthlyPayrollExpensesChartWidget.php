@@ -7,6 +7,10 @@ use Filament\Widgets\ChartWidget;
 
 class MonthlyPayrollExpensesChartWidget extends ChartWidget
 {
+    protected static ?bool $isLazyLoaded = false;
+
+    protected static bool $isLazy = false;
+
     protected ?string $heading = 'Monthly Payroll & Labor Cost Summary';
 
     protected static ?int $sort = 4;

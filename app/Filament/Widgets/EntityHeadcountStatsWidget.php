@@ -13,6 +13,10 @@ use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class EntityHeadcountStatsWidget extends StatsOverviewWidget
 {
+    protected static ?bool $isLazyLoaded = false;
+
+    protected static bool $isLazy = false;
+
     protected static ?int $sort = 1;
 
     protected ?string $pollingInterval = null;

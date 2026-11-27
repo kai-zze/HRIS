@@ -8,6 +8,10 @@ use Filament\Widgets\ChartWidget;
 
 class AttendanceTrendChartWidget extends ChartWidget
 {
+    protected static ?bool $isLazyLoaded = false;
+
+    protected static bool $isLazy = false;
+
     protected ?string $heading = 'Attendance & Tardiness Trend (Last 7 Days)';
 
     protected static ?int $sort = 5;
