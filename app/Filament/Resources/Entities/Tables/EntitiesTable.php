@@ -26,7 +26,10 @@ class EntitiesTable
                     ->getStateUsing(fn (Entity $record): string => $record->logo_url)
                     ->square()
                     ->imageSize(52)
-                    ->extraImgAttributes(['class' => 'object-contain bg-white p-1 rounded-md border border-zinc-200 shadow-2xs']),
+                    ->extraImgAttributes([
+                        'class' => 'object-contain',
+                        'style' => 'border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important; max-height: 48px; max-width: 70px; object-fit: contain;',
+                    ]),
                 TextColumn::make('code')
                     ->label('Code')
                     ->fontFamily('mono')

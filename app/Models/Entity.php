@@ -105,6 +105,11 @@ class Entity extends Model implements HasMedia
             if (file_exists(public_path($this->logo_path))) {
                 return asset($this->logo_path);
             }
+
+            $entityImageName = basename($this->logo_path);
+            if (file_exists(public_path('images/entities/' . $entityImageName))) {
+                return asset('images/entities/' . $entityImageName);
+            }
         }
 
         if ($this->hasMedia('logo')) {
@@ -124,6 +129,11 @@ class Entity extends Model implements HasMedia
             if (file_exists(public_path($this->logo_path))) {
                 return public_path($this->logo_path);
             }
+
+            $entityImageName = basename($this->logo_path);
+            if (file_exists(public_path('images/entities/' . $entityImageName))) {
+                return public_path('images/entities/' . $entityImageName);
+            }
         }
 
         if ($this->hasMedia('logo')) {
@@ -137,13 +147,21 @@ class Entity extends Model implements HasMedia
     {
         $code = strtolower(str_replace(['_', ' '], '-', (string) $this->code));
 
-        return match ($code) {
-            'stc' => 'images/entities/km100-stc.jpg',
-            'km100-petc', 'petc' => 'images/entities/km100-petc.jpg',
-            'knoah', 'knoahmari', 'knoah-mari' => 'images/entities/knoah-mari.jpg',
-            'redgoose', 'red-goose' => 'images/entities/red-goose.jpg',
-            default => 'images/km100-logo.jpg',
+        $candidates = match ($code) {
+            'stc' => ['images/entities/STC.jpg', 'images/entities/km100-stc.jpg', 'images/entities/stc.jpg'],
+            'km100-petc', 'petc' => ['images/entities/PETC.jpg', 'images/entities/km100-petc.jpg', 'images/entities/petc.jpg'],
+            'knoah', 'knoahmari', 'knoah-mari' => ['images/entities/Knoah-Mari.jpg', 'images/entities/knoah-mari.jpg'],
+            'redgoose', 'red-goose' => ['images/entities/Red-Goose.jpg', 'images/entities/red-goose.jpg'],
+            default => ['images/km100-logo.jpg'],
         };
+
+        foreach ($candidates as $candidate) {
+            if (file_exists(public_path($candidate))) {
+                return $candidate;
+            }
+        }
+
+        return $candidates[0];
     }
 
     public static function maskIdentifier(?string $value): string

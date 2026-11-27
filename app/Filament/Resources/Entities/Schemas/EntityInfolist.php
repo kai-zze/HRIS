@@ -22,7 +22,10 @@ class EntityInfolist
                             ->label('Company Logo')
                             ->getStateUsing(fn (Entity $record): string => $record->logo_url)
                             ->imageHeight(100)
-                            ->extraImgAttributes(['class' => 'object-contain bg-white p-2 rounded-lg border border-zinc-200 shadow-xs max-w-xs'])
+                            ->extraImgAttributes([
+                                'class' => 'object-contain max-w-xs',
+                                'style' => 'border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important; object-fit: contain;',
+                            ])
                             ->columnSpanFull(),
                         TextEntry::make('code')
                             ->label('Entity Code')
